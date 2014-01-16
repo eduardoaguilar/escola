@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Lista | Turma
+{% endblock %}
+
+{% block conteudo %}
+<form method="post" action="">
+	{% csrf_token %} 
+	<div style="width:100%; font-size:12px; text-align:left">
+	<table>
+		<tr> 
+		<td class="colunaTabela"> <label>Turma</label> </td>
+		<td> 
+		<select name="nmTurma">
+			{% for obj in turma %}
+				{% if obj.id == form.nmTurma.value %}
+					<option selected="selected" value="{{ obj.id }}">{{ obj.nmCurso }} {{ obj.nmLocal }} {{ obj.dtPeriodo }}</option>
+				{% else %}
+					<option value="{{ obj.id }}">{{ obj.nmCurso }} {{ obj.nmLocal }} {{ obj.dtPeriodo }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		</td>
+		</tr>
+		
+		<tr> <td class="colunaTabela"> <label>Aluno</label> </td>
+		<td> 
+		<select name="nmAluno">
+			{% for obj in aluno %}
+				{% if obj.id == form.nmAluno.value %}
+					<option selected="selected" value="{{ obj.id }}">{{ obj.nmAluno }}</option>
+				{% else %}
+					<option value="{{ obj.id }}">{{ obj.nmAluno}}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		</td>
+		</tr>
+		
+		
+	</table>
+	</div>
+	<br />
+	<table style="width:100%">
+	<tr>	<td class="colunaTabela" style="text-align:left">
+			<a href="/listaMatricula/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+			<input type="submit" class="button_green" value="SALVAR" />
+		</td>
+	</tr>
+	</table>
+	</form>
+	
+{% endblock %}

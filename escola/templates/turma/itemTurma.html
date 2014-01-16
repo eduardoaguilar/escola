@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Lista | Turma
+{% endblock %}
+
+{% block conteudo %}
+<form method="post" action="">
+	{% csrf_token %} 
+	<div style="width:100%; font-size:12px; text-align:left">
+	<table>
+		<tr> 
+		<td class="colunaTabela"> <label>Curso</label> </td>
+		<td> 
+		<select name="nmCurso">
+			{% for obj in curso %}
+				{% if obj.id == form.nmCurso.value %}
+					<option selected="selected" value="{{ obj.id }}">{{ obj.nmCurso }}</option>
+				{% else %}
+					<option value="{{ obj.id }}">{{ obj.nmCurso }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		</td>
+		</tr>
+		
+		<tr> <td class="colunaTabela"> <label>Local</label> </td>
+		<td> 
+		<select name="nmLocal">
+			{% for obj in local %}
+				{% if obj.id == form.nmLocal.value %}
+					<option selected="selected" value="{{ obj.id }}">{{ obj.nmLocal }}</option>
+				{% else %}
+					<option value="{{ obj.id }}">{{ obj.nmLocal }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		</td>
+		</tr>
+		
+		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>	<td>{{form.dtPeriodo}} </td> </tr>
+	</table>
+	</div>
+	<br />
+	<table style="width:100%">
+	<tr>	<td class="colunaTabela" style="text-align:left">
+			<a href="/listaTurma/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+			<input type="submit" class="button_green" value="SALVAR" />
+		</td>
+	</tr>
+	</table>
+	</form>
+	
+{% endblock %}

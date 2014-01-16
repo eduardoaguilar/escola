@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Lista | Aluno
+{% endblock %}
+
+{% block conteudo %}
+<form method="post" action="">
+	{% csrf_token %} 
+	<div style="width:100%; font-size:12px; text-align:left">
+	<table>
+	<tr> <td class="colunaTabela"> <label>Aluno</label> </td><td><input name="nmAluno" size=60
+		value="{{aluno.nmAluno}}"/> </td></tr>
+	<tr> <td class="colunaTabela"> <label>Matricula</label> </td><td><input name="dtMatricula" size=60
+		value="{{aluno.dtMatricula}}"/> </td></tr>
+	</table>
+	</div>
+	<br />
+	<table style="width:100%">
+	<tr>	<td class="colunaTabela" style="text-align:left">
+			<a href="/listaAluno/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+			<input type="submit" class="button_green" value="SALVAR" />
+		</td>
+	</tr>
+	</table>
+	</form>
+	
+{% endblock %}

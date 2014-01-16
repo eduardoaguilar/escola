@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Lista | Local
+{% endblock %}
+
+{% block conteudo %}
+<form method="post" action="">
+	{% csrf_token %} 
+	<div style="width:100%; font-size:12px; text-align:left">
+	<table>
+	<tr> <td class="colunaTabela"> <label>Curso</label> </td><td><input name="nmCurso" size=60
+		value="{{curso.nmCurso}}"/> </td></tr>
+	</table>
+	</div>
+	<br />
+	<table style="width:100%">
+	<tr>	<td class="colunaTabela" style="text-align:left">
+			<a href="/listaCurso/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+			<input type="submit" class="button_green" value="SALVAR" />
+		</td>
+	</tr>
+	</table>
+	</form>
+	
+{% endblock %}

@@ -1,0 +1,33 @@
+
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	consulta | cursos
+{% endblock %}
+
+{% block conteudo %}
+	
+<table>
+	<thead style="background:#e5e5e5;color:black">
+	<tr>
+		<th class="colunaTabelaConsulta" style="width:5%">Remover</th>
+		<th class="colunaTabelaConsulta" style="width:95%">Curso</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% if lista%}
+		{% for item in lista %}
+			<tr>
+				<td class="colunaTabelaConsulta">
+				 	<a href="/removeCurso/{{item.id}}/"> <img src="{% static "img/lixeira.png" %}" alt ="Deletar"/></a>
+				</td>
+	 			<td class="colunaTabelaConsulta"> <a href="/itemCurso/{{item.id}}/">{{ item.nmCurso }}</a>
+			</tr>
+		{% endfor %}
+	{% else %}
+		<li>Sem itens na lista</li> 
+	{% endif %}
+</table>
+{% endblock %}

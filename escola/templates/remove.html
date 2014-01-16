@@ -1,0 +1,16 @@
+{% extends "index.html" %} {% block conteudo %}
+
+<h1>Remover</h1>
+<h2>{{item.nmAluno}}</h2>
+
+<p>{{item.dtMatricula}}</p>
+
+<form action="" method="post">
+	{% csrf_token %}
+	<p>
+		<button type="submit">Remover</button>
+		ou <a href="/">Cancelar</a>
+	</p>
+
+</form>
+{% endblock %}

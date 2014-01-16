@@ -1,0 +1,221 @@
+{% load staticfiles %} 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html style="font-size: 20px;" xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" lang="pt-br">
+<head>
+
+<meta charset="utf-8" />
+	<title>Controle ESCOLA</title>
+	
+<link rel="stylesheet" type="text/css" media="screen"
+	href="{% static "css/bs1-cachekey0246.css" %}" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="{% static "css/bs2-cachekey2314.css" %}" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="{% static "css/bs3-cachekey5925.css" %}" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="{% static "css/bs4-cachekey9210.css" %}" />
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="{% static "css/style.css" %}" />
+	
+<link rel="stylesheet" href="{% static "css/jquery-ui.css" %}" />
+<script src="{% static "js/jquery-1.9.1.js" %}"></script>
+<script src="{% static "js/jquery-ui.js" %}"></script>
+<script>
+$(function() {
+$( "#tabs" ).tabs();
+});
+$(function() {
+	$( "#accordion" ).accordion();
+	});
+$(function() {
+	$( "#dialog-modal" ).dialog({
+	modal: true
+	});
+	});
+$(function() {
+	$( "#menu" ).menu();
+	});
+function my_callback(data){
+    alert(data.message);
+}
+</script>
+ <style>
+.ui-menu { width: 180px; z-index: 1000; }
+</style>
+<script src="{% static "js/jquery_maskedinput.js" %}" type="text/javascript"></script>
+<script>
+jQuery(function($){   
+	$("#date").mask("99/99/9999");
+	$("#date2").mask("99/99/9999");
+	$("#cpf").mask("999.999.999-99");
+	$("#cpf2").mask("999.999.999-99");
+	$("#cnpj").mask("99.999.999/9999-99");
+	$("#processo").mask("99999.999999/9999-99");
+	$("#processo2").mask("99999.999999/9999-99");
+});
+
+function proc()
+{
+	if (document.form.escolha.value != "0") {
+		document.form.submit();
+	} 
+}
+
+function SomenteNumero(e, obj)
+{
+	var tecla=(window.event)?event.keyCode:e.which;
+	if((tecla>47 && tecla<58)) return true;
+	else
+	{
+
+		if (tecla==8 || tecla==0 ) return true;
+		else
+			if(tecla==46)
+			{
+				if (obj.value.indexOf(".") > 1)
+					return false;
+				else
+					return true;
+			}
+			else
+				return false;
+			
+	}
+}
+
+function SomenteNumeroOK(e, obj)
+{
+	var tecla=(window.event)?event.keyCode:e.which;
+	if((tecla>47 && tecla<58)) return true;
+	else
+	{
+		if (tecla==8 || tecla==0 ) return true;
+		else
+			return false;
+	}
+}
+</script>
+<html>
+
+<head>
+{% block cabecalho %}<title>Escola</title> {% endblock %}
+</head>
+
+<body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top;" 
+	id="home-pt" dir="ltr" class="section-home template-contentpanels_view">
+
+
+<!-- div id="barra-brasil">
+	<div class="barra">
+		<div style="width:100%;font-size:50px;color:white; font-weight:bold"> 
+		Sistema de controle de escola </div>
+	</div>
+</div-->
+
+<div style="width:100%;font-size:30px;color:white; font-weight:bold
+	;position: center;	overflow: hidden;	min-width: 1000px;	
+	background:url('{% static 'img/bg.jpg' %}') no-repeat center fixed;">
+	Sistema de controle de escola
+</div>
+
+
+
+<div id="visual-portal-wrapper">
+	<DIV id="portal-top">
+		<DIV id="portal-header">
+			<div id="divCollophon" style=" background: url('{% static "img/bgHeader.gif" %}');" >
+				<div class="first-child last-child">
+					<div style="margin-top:10px" class="baixoContraste first-child last-child">
+						<p style="font-weight: normal;" class="first-child">
+						Você está aqui: {% block breadcumbs %} {% endblock %}
+					</p>
+					<p style="font-weight: bold;" class="creditos last-child">
+						{% if user.is_active %}
+							Usuario: 
+							{% filter force_escape %}{% firstof user.get_short_name user.get_username %}{% endfilter %} 
+							| <a href="/logout/">Sair do Sistema</a>
+						{% endif %}
+					</p>
+					</div>
+				</div>
+			</div>
+		</DIV><!-- fim div portal-header -->
+	</DIV><!-- fim div portal-top -->
+
+	<div id="portal-column-content" class="visualColumnHideTwo">
+
+<!----------------------------------- COLUNA ESQUERDA -->
+		<div class="first-child" id="portal-column-one">
+			<div id="cssmenu_v">
+			 				<ul style="font-size:9px">
+								<li>
+									<a href="/" title="">
+										<span>Inicio</span>
+									</a>
+								</li>
+								<li>
+									<a href="/web/terra_legal/" title="">
+										<span>ECAM</span>
+									</a>
+								</li>
+								<li>
+									<a href="/web/mda/" title="">
+										<span>RENOVO</span>
+									</a>
+								</li>
+								<li>
+									<a href="/web/processo_rural/" title="">
+										<span>BELEM</span>
+									</a>
+								</li>
+								<li>
+									<a href="/web/regularizacao_urbana/" title="">
+										<span>BRASILIA</span>
+									</a>
+								</li>
+								<li>
+									<a href="/sicop/processos/" title="">
+										<span>Acesso Restrito</span>
+									</a>
+								</li>
+							</ul>
+			</div>
+		</div>
+
+<!----------------------------------- COLUNA CENTRAL -->
+		<div id="content-plain" class="last-child">
+		<!-- Menu Segundo nivel -->
+			<div class="last-child">
+				<div class="visualClear">
+				</div>
+				<table class="cp_Página sem título" align="center" width="776">
+					<tbody class="first-child last-child">
+						<tr style="background:white" class="first-child last-child">
+							<td class="first-child" style="width: 776px" valign="top" width="#">
+								<div 	class="viewlet defaultPortletWrapper pais-tem-menor-taxa-de-desemprego-da-historia"
+									style="height:600px;margin: 0px 10px 5px 10px">
+									{% block index %} {% endblock %}   				
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- COLUNA ESQUERDA -->
+
+			<!-- FIM - COLUNA ESQUERDA -->
+		</div>
+		<!-- FIM - COLUNA CENTRAL -->
+
+		<!-- FIM - COLUNA CENTRAL -->
+	</div>
+</div>
+		
+<!-- fim div portal-wrapper -->	
+</body>
+</html>

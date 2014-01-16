@@ -1,0 +1,33 @@
+
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Consulta | Local
+{% endblock %}
+
+{% block conteudo %}
+
+<table>
+	<thead style="background:#e5e5e5;color:black">
+	<tr>
+		<th class="colunaTabelaConsulta" style="width:5%">Remover</th>
+		<th class="colunaTabelaConsulta" style="width:95%">Local</th>
+	</tr>
+	</thead>
+	<tbody>
+	{% if lista%}
+		{% for item in lista %}
+			<tr>
+				<td class="colunaTabelaConsulta">
+				 	<a href="/removeLocal/{{item.id}}/"> <img src="{% static "img/lixeira.png" %}" alt ="Deletar"/></a>
+				</td>
+	 			<td class="colunaTabelaConsulta"> <a href="/itemLocal/{{item.id}}/">{{ item.nmLocal }}</a>
+			</tr>
+		{% endfor %}
+	{% else %}
+		<li>Sem itens na lista</li> 
+	{% endif %}
+</table>
+{% endblock %}

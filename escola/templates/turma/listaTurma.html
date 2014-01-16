@@ -1,0 +1,43 @@
+
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Consulta | Turma
+{% endblock %}
+
+{% block conteudo %}
+	
+
+<table>
+	<thead style="background:#e5e5e5;color:black">
+	<tr>
+		<th class="colunaTabelaConsulta" style="width:10%">Remover</th>
+		<th class="colunaTabelaConsulta" style="width:30%">Curso</th>
+		<th class="colunaTabelaConsulta" style="width:30%">Local</th>
+		<th class="colunaTabelaConsulta" style="width:30%">Periodo</th>
+		
+	</tr>
+	</thead>
+	<tbody>
+	{% if listaTurma_itens%}
+		{% for item in listaTurma_itens %}
+			<tr>
+				<td class="colunaTabelaConsulta">
+				 	<a href="/removeTurma/{{item.id}}/"> <img src="{% static "img/lixeira.png" %}" alt ="Deletar"/></a>
+				</td>
+				
+	 			<td class="colunaTabelaConsulta"> <a href="/itemTurma/{{item.id}}/">{{ item.nmCurso }}</a></td>
+	 			<td class="colunaTabelaConsulta"> {{ item.nmLocal }}</td>
+	 			<td class="colunaTabelaConsulta"> {{ item.dtPeriodo }}</td>
+	 			
+	 			
+			</tr>
+		{% endfor %}
+	{% else %}
+		<li>Sem itens na lista</li> 
+	{% endif %}
+</table>
+
+{% endblock %}
