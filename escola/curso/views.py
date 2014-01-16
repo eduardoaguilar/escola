@@ -26,15 +26,11 @@ def listaAluno(request):
 @login_required
 def adicionaAluno (request):
     if request.method == "POST":
-        datatitulacao = None
-        if request.POST['dtMatricula']:
-                datatitulacao = datetime.datetime.strptime( request.POST['dtMatricula'], "%d/%m/%Y")
-            
-        f_local = Local( 
-                nmLocal = request.POST['nmAluno'],
-                dtMatricula = datatitulacao,
+        f_aluno = Aluno( 
+                nmAluno = request.POST['nmAluno'],
+                dtMatricula = datetime.datetime.now(),
                 )
-        f_local.save()
+        f_aluno.save()
         
         return HttpResponseRedirect ("/listaAluno/")
     return render_to_response ("aluno/adicionaAluno.html",context_instance=RequestContext(request))  

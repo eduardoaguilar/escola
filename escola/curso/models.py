@@ -22,7 +22,8 @@ class Turma(models.Model):
 
 class Aluno(models.Model):  
     nmAluno      = models.CharField(max_length=60)
-    dtMatricula  = models.DateField('matricula')
+    dtMatricula  = models.DateField(null=True, blank=True)
+    
     #usuario      = models.ForeignKey(User)
     #participa    = models.ManyToManyField(Turma,related_name="turma_aluno") 
     def __unicode__(self):
