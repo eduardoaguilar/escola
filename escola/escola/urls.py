@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     (r'^listaAluno/$', "curso.views.listaAluno"),
     (r'^itemAluno/(?P<nr_item>\d+)/$',"curso.views.itemAluno"),
     (r'^removeAluno/(?P<nr_item>\d+)/$',"curso.views.removeAluno"),
+    (r'^listaTurmasdoAluno/(?P<nr_item>\d+)/$',"curso.views.removeAluno"),
     
     #controle local
     (r'^adicionaLocal/$', "curso.views.adicionaLocal"),
@@ -38,6 +39,10 @@ urlpatterns = patterns('',
     (r'^listaMatricula/$', "curso.views.listaMatricula"),
     (r'^itemMatricula/(?P<nr_item>\d+)/$',"curso.views.itemMatricula"),
     (r'^removeMatricula/(?P<nr_item>\d+)/$',"curso.views.removeMatricula"),
+    #controle periodo
+    (r'^adicionaPeriodo/$', "curso.views.adicionaPeriodo"),
+    (r'^listaPeriodo/$', "curso.views.listaPeriodo"),
+    
     
     (r'^login/',"django.contrib.auth.views.login", {"template_name": "login.html"}),
     (r'^logout/',"django.contrib.auth.views.logout_then_login", {'login_url':'/login/'}), # chama essa page quando fizer o login .tem q passar como parametro              

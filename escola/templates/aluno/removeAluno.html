@@ -2,7 +2,7 @@
 
 {% block conteudo %}
 
-<p>Remover curso : {{item.nmCurso}} </p>
+<p>Remover aluno : {{item.nmAluno}} </p>
 
 <form action="" method="post">
 	{% csrf_token %}
@@ -10,7 +10,7 @@
 	<table style="width:100%">
 	</br>
 	<tr>	<td class="colunaTabela" style="text-align:left"> 
-		<a href="/curso/listacurso/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CANCELAR" /></a>
+		<a href="/aluno/listaAluno/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CANCELAR" /></a>
 		<input type="submit" class="button_green" value="REMOVER" /></td>
 	</tr>
 	</table>

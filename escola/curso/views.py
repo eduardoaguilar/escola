@@ -1,16 +1,28 @@
 # _*_ encondig: utf-8 _*_
 
+
 from django.shortcuts import render_to_response  , get_object_or_404 , render
 from django.http import HttpResponseRedirect
-from models import Aluno, Local, Curso, Turma, Matricula
+from models import Aluno, Local, Curso, Turma, Matricula, Periodo
 from forms import FormAluno,FormItemLocal, FormItemCurso , FormTurma, FormMatricula
 from django.contrib import messages
 from django.http.response import HttpResponseRedirect, HttpResponse
 import datetime
 
+from django.contrib.auth.decorators import login_required, user_passes_test,\
+    permission_required
+from django.shortcuts import render_to_response, get_object_or_404
+from django.http import HttpResponseRedirect
+from django.template.context import RequestContext
+from django.contrib import messages
+from django.http.response import HttpResponse
+import datetime
+from datetime import timedelta
 
 from django.template import RequestContext
-from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
+
+nome_relatorio = "relatorio_aluno"
 
 @login_required
 def inicio(request):
@@ -19,10 +31,13 @@ def inicio(request):
 #####CONTROLE ALUNOS
 @login_required
 def listaAluno(request):
-    lista =  Aluno.objects.all 
-    #listaLocal_itens = listaLocal_itens.order_by('nmLocal')
+    if request.method == "POST":
+        aluno = request.POST['aluno']
+        lista = Aluno.objects.all().filter( nmAluno__icontains=aluno)
+    else:
+        lista =  Aluno.objects.all()
+    request.session['relatorio_aluno'] = lista
     return render_to_response ("aluno/listaAluno.html",{'lista': lista},context_instance=RequestContext(request)) 
-
 @login_required
 def adicionaAluno (request):
     if request.method == "POST":
@@ -34,7 +49,6 @@ def adicionaAluno (request):
         
         return HttpResponseRedirect ("/listaAluno/")
     return render_to_response ("aluno/adicionaAluno.html",context_instance=RequestContext(request))  
-
 @login_required
 def itemAluno(request,nr_item):                   
     item = get_object_or_404 (Aluno, pk=nr_item )   
@@ -42,21 +56,31 @@ def itemAluno(request,nr_item):
         f_aluno = Aluno(
                     id = item.id,
                     nmAluno = request.POST['nmAluno'],
-                    dtMatricula = request.POST['dtMatricula'])
+                    dtMatricula = item.dtMatricula ,)
         f_aluno.save()
         return HttpResponseRedirect ("/itemAluno/"+str(nr_item)+"/")
     return render_to_response ('aluno/itemAluno.html',{"aluno":item}, context_instance=RequestContext(request))
             
 @login_required
-def removeLocal(request,nr_item):
+def removeAluno(request,nr_item):
     warning = True
-    item = get_object_or_404 (Local, pk=nr_item) # todos os usuarios,usuario=request.user)
+    item = get_object_or_404 (Aluno, pk=nr_item) 
     if request.method =="POST":
         item.delete() 
-        #return render_to_response("removido.html",{})
-        messages.add_message(request, messages.WARNING,'LOCAL REMOVIDO')
-        return HttpResponseRedirect("/listaLocal/")
-    return render_to_response ("local/removeLocal.html", {'item':item},context_instance=RequestContext(request))
+        messages.add_message(request, messages.WARNING,'ALUNO REMOVIDO')
+        return HttpResponseRedirect("/listaAluno/")
+    return render_to_response ("aluno/removeAluno.html", {'item':item},context_instance=RequestContext(request))
+
+@login_required
+def listaTurmasdeAluno(request,nr_item):
+    if request.method == "POST":
+        aluno = request.POST['aluno']
+        lista = Aluno.objects.all().filter( nmAluno__icontains=aluno)
+    else:
+        lista =  Aluno.objects.all()
+        
+    request.session['relatorio_aluno'] = lista
+    return render_to_response ("aluno/listaAluno.html",{'lista': lista},context_instance=RequestContext(request)) 
 
 
 #####CONTROLE LOCAL
@@ -147,11 +171,11 @@ def listaTurma(request):
     #lista_itens =  Aluno.objects.filter(usuario=request.user) # soh mostra os registros do usuario q esta logado
     return render_to_response ("turma/listaTurma.html",{'listaTurma_itens': listaTurma_itens}, 
         context_instance=RequestContext(request)) # para funcionar o icone da lixeira. adciona a configuracao media_url
-
 @login_required
 def adicionaTurma (request):
     curso = Curso.objects.all()
     local = Local.objects.all()
+    periodo = Periodo.objects.all()
     if request.method == "POST":
         form = FormTurma (request.POST)
         if form.is_valid ():
@@ -159,7 +183,7 @@ def adicionaTurma (request):
             return HttpResponseRedirect("/listaTurma/")
     else:
         form = FormTurma()  
-    return render_to_response ('turma/adicionaTurma.html',{"form":form,"curso":curso,"local":local},context_instance=RequestContext(request))  # essa linha eh um mecansmo de proteao
+    return render_to_response ('turma/adicionaTurma.html',{"form":form,"curso":curso,"local":local,"periodo":periodo},context_instance=RequestContext(request))  # essa linha eh um mecansmo de proteao
 
 @login_required
 def itemTurma(request,nr_item): 
@@ -192,9 +216,8 @@ def removeTurma(request,nr_item):
 ################################################################################
 @login_required
 def listaMatricula(request):
-    listaMatricula_itens =  Matricula.objects.all
-    #listaMatricula_itens = listaMatricula_itens.order_by('nmAluno')
-    return render_to_response ("matricula/listaMatricula.html",{'listaMatricula_itens': listaMatricula_itens}, 
+    lista =  Matricula.objects.all
+    return render_to_response ("matricula/listaMatricula.html",{"lista": lista}, 
         context_instance=RequestContext(request)) 
     
 @login_required
@@ -234,3 +257,28 @@ def removeMatricula(request,nr_item):
         messages.add_message(request, messages.WARNING,'MATRICULA REMOVIDA')
         return HttpResponseRedirect("/listaMatricula/")
     return render_to_response ("matricula/removeMatricula.html", {'item':item},context_instance=RequestContext(request))
+
+
+#### CONTROLE PERIODO
+
+@login_required
+def adicionaPeriodo (request):
+    
+    if request.method == "POST": 
+        _periodo = request.POST['nmPeriodo'].replace('/','')
+        if not _periodo:
+            _periodo = None
+        f_periodo = Periodo( 
+                nmPeriodo = _periodo,
+                )
+        f_periodo.save()
+        
+        return HttpResponseRedirect ("/listaPeriodo/")
+    return render_to_response ("periodo/adicionaPeriodo.html",context_instance=RequestContext(request))  
+
+@login_required
+def listaPeriodo(request):
+    lista =  Periodo.objects.all
+    return render_to_response ("periodo/listaPeriodo.html",{"lista": lista}, 
+        context_instance=RequestContext(request)) 
+

@@ -2,7 +2,6 @@
 
 {% block conteudo %}
 
-
 <form  action=""  method="post">
 	{% csrf_token %} 
 	<div style="width:100%;font-size:12px;text-align:left">
@@ -24,10 +23,18 @@
 						<option value="{{ obj.id }}">{{ obj.nmLocal }}</option>
 					{% endfor %}
 				</select>
-			</td>
-			<!--td se for usar para cadastrar curso apartir daqui><a href="/sicop/restrito/sub_area/cadastro/?next=/sicop/restrito/sub_area/cadastro/" title="Nova SubArea"> <img src="colchetes static "img/add.png" colchetes" width="24" /> </a></td-->						
+			</td>						
 		</tr>
-		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>	<td>{{form.dtPeriodo}} </td> </tr>
+		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>
+			<td>
+				<select name="nmPeriodo">
+					{% for obj in periodo %}
+						<option id="periodo" value="{{ obj.id }}">{{ obj.nmPeriodo }}</option>
+					{% endfor %}
+				</select>
+			</td>
+									
+		</tr>
 	</table>
 	</div>
 	

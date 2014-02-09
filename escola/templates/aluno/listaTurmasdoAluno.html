@@ -33,8 +33,8 @@
 <table>
 	<thead style="background:#e5e5e5;color:black">
 	<tr>
-		<th class="colunaTabelaConsulta" style="width:70%">Aluno</th>
-		<th class="colunaTabelaConsulta" style="width:20%">Turma</th>
+		<th class="colunaTabelaConsulta" style="width:50%">Aluno</th>
+		<th class="colunaTabelaConsulta" style="width:50%">Turma</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -43,7 +43,7 @@
 			<tr>
 				<td class="colunaTabelaConsulta"> <a href="/itemAluno/{{item.id}}/">{{ item.nmAluno }}</a>
 	 			<td class="colunaTabelaConsulta">
-				 	<a href="/listaTurmasdoAluno/"> <img src="{% static "img/turma.jpg" %}" alt ="Deletar"/></a>
+				 	<a href="/listaTurma/{{item.id}}/"> <img src="{% static "img/turma.jpg" %}" alt ="Deletar"/></a>
 				</td>
 			</tr>
 		{% endfor %}

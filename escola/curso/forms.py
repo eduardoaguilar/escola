@@ -5,7 +5,7 @@ from models import Local, Curso, Turma, Matricula
 class FormAluno (forms.ModelForm):
     class Meta:
         model = Aluno 
-        fields = ('nmAluno', 'dtMatricula') #,'participa') 
+        fields = ('nmAluno', 'dtMatricula')  
         
 class FormItemLocal (forms.ModelForm):
     class Meta:

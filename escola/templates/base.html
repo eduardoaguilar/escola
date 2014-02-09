@@ -57,6 +57,7 @@ jQuery(function($){
 	$("#cnpj").mask("99.999.999/9999-99");
 	$("#processo").mask("99999.999999/9999-99");
 	$("#processo2").mask("99999.999999/9999-99");
+	$("#periodo").mask("9999/9");
 });
 
 function proc()
@@ -109,25 +110,15 @@ function SomenteNumeroOK(e, obj)
 <body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top;" 
 	id="home-pt" dir="ltr" class="section-home template-contentpanels_view">
 
-
-<!-- div id="barra-brasil">
-	<div class="barra">
-		<div style="width:100%;font-size:50px;color:white; font-weight:bold"> 
-		Sistema de controle de escola </div>
-	</div>
-</div-->
-
-<div style="width:100%;font-size:30px;color:white; font-weight:bold
-	;position: center;	overflow: hidden;	min-width: 1000px;	
-	background:url('{% static 'img/bg.jpg' %}') no-repeat center fixed;">
-	Sistema de controle de escola
+<div style="width:100%;font-size:40px;color:blue; font-weight:bold
+	;position: center;	overflow: hidden;	min-width: 1000px;
+	font-family: verdana, sans-serif; text-align:center">	
+	<!-- background:url('{% static 'img/bg.jpg' %}') no-repeat center fixed;"-->
+	Controle de Escola
 </div>
-
-
-
 <div id="visual-portal-wrapper">
-	<DIV id="portal-top">
-		<DIV id="portal-header">
+	<div id="portal-top">
+		<div id="portal-header">
 			<div id="divCollophon" style=" background: url('{% static "img/bgHeader.gif" %}');" >
 				<div class="first-child last-child">
 					<div style="margin-top:10px" class="baixoContraste first-child last-child">

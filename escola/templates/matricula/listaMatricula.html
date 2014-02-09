@@ -20,8 +20,8 @@
 	</tr>
 	</thead>
 	<tbody>
-	{% if listaMatricula_itens%}
-		{% for item in listaMatricula_itens %}
+	{% if lista %}
+		{% for item in lista %}
 			<tr>
 				<td class="colunaTabelaConsulta">
 				 	<a href="/removeMatricula/{{item.id}}/"> <img src="{% static "img/lixeira.png" %}" alt ="Deletar"/></a>
