@@ -237,7 +237,7 @@ font-size: 130%;
   -moz-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15);
   -webkit-box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.15);
-  width: 180px; }
+  width: 209px; }
   #cssmenu_v span, #cssmenu_v a {
     display: inline-block;
     font-family: Arial, Helvetica, sans-serif;
@@ -490,9 +490,9 @@ font-size: 130%;
 	display:inline-block;
 	color:#ffffff;
 	font-family:arial;
-	font-size:15px;
+	font-size:12px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:2px 15px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #aade7c;
 }
@@ -522,10 +522,10 @@ font-size: 130%;
 	display:inline-block;
 	color:#ffffff;
 	font-family:arial;
-	font-size:15px;
+	font-size:12px;
 	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
+	padding:2px 15px;
+   text-decoration:none;
 	text-shadow:1px 1px 0px #ded17c;
 }.button_yellow:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f2ab1e), color-stop(1, #ffcc00) );

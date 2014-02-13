@@ -1,8 +1,8 @@
-from curso.models import Aluno 
-from curso.models import Curso
-from curso.models import Local
-from curso.models import Turma
-from curso.models import Matricula
+from models import Aluno 
+from models import Curso
+from models import Local
+from models import Turma
+from models import Matricula
 
 from django.contrib import admin
 

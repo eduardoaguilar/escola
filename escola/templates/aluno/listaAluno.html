@@ -8,42 +8,38 @@
 {% endblock %}
 
 {% block conteudo %}
+<div style="width:100%">
 <form action="." method="post">
 {% csrf_token %}
 			
-<table id="table_peca_tecnica">
+<table id="table_peca_tecnica"  style="width:100%">
 	<tr>
-	<td class="colunaTabela"> <label>Aluno: </label> </td><td> <input name="aluno" /> </td>
-	<td class="colunaTabela" colspan="2" style="text-align:right" >
-		<div>Total de registros: {{ request.session.relatorio_aluno|length }}</div>
-	</td>
-
+		<td class="colunaTabela" style="width:7%"><label>Aluno: </label> </td>
+		<td class="colunaTabela" style="width:37%"><input name="aluno" size="40"/> </td>
+		<td class="colunaTabela" style="width:8%"><input class="button_yellow" style="margin-right:1px" type="submit" value="PESQUISAR"/> </td>	
+		<td class="colunaTabela" style="width:8%"><a href="/adicionaAluno/"> <input class="button_green" value="NOVO" type="button" /> </a>
+		<td class="colunaTabela" style="width:40%"></td>
 	</tr>
 </table>
-</br>
-<table style="width:100%">
-	<tr>
-		<td class="colunaTabela" style="text-align:left"> 
-			<input class="button_yellow" style="margin-right: 10px" type="submit" value="PESQUISAR" />
-			<a href="/servidor/restrito/servidor/cadastro/"> <input class="button_green" value="NOVO" type="button" /> </a>
-		</td>
-	</tr>	
-</table>
 
-<table>
-	<thead style="background:#e5e5e5;color:black">
+<div>Total de registros: {{ request.session.relatorio_aluno|length }}</div>
+
+<table id="table_peca_tecnica"  style="width:100%">
+	<thead style="background:#e5e5e5;color:black style="width:100%">
 	<tr>
 		<th class="colunaTabelaConsulta" style="width:70%">Aluno</th>
-		<th class="colunaTabelaConsulta" style="width:20%">Turma</th>
+		<th class="colunaTabelaConsulta" style="width:10%">Turmas</th>
+		
 	</tr>
 	</thead>
 	<tbody>
 	{% if lista%}
 		{% for item in lista %}
 			<tr>
-				<td class="colunaTabelaConsulta"> <a href="/itemAluno/{{item.id}}/">{{ item.nmAluno }}</a>
-	 			<td class="colunaTabelaConsulta">
-				 	<a href="/listaTurmasdoAluno/"> <img src="{% static "img/turma.jpg" %}" alt ="Deletar"/></a>
+				<td class="colunaTabelaConsulta" style="width:80%"> <a href="/itemAluno/{{item.id}}/">{{ item.nmAluno }}</a>
+	 			<td class="colunaTabelaConsulta" style="width:10%" align="center">
+				 	<!--  a href="/ListaTurmasdoAluno/{{item.id}}/"> <img src="{% static "img/turma.jpg" %}" alt ="turmas"  /></a-->
+				 	<a href=""> <img src="{% static "img/turma.jpg" %}" alt ="turmas"  /></a>
 				</td>
 			</tr>
 		{% endfor %}
@@ -54,4 +50,5 @@
 
 
 </form>
+</div>
 {% endblock %}

@@ -18,7 +18,6 @@ class FormItemCurso (forms.ModelForm):
 class FormTurma (forms.ModelForm):
     class Meta:
         model = Turma
-        fields = ('nmCurso','nmLocal','dtPeriodo')
         
 class FormMatricula (forms.ModelForm):
     class Meta:

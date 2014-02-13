@@ -2,20 +2,20 @@
 {% load staticfiles %}
 
 {% block breadcumbs %}
-	Lista | Turma
+	Edicao | Turma
 {% endblock %}
 
 {% block conteudo %}
-<form method="post" action="">
+<form method="post" action=".">
 	{% csrf_token %} 
 	<div style="width:100%; font-size:12px; text-align:left">
 	<table>
 		<tr> 
 		<td class="colunaTabela"> <label>Curso</label> </td>
 		<td> 
-		<select name="nmCurso">
+		<select name="curso">
 			{% for obj in curso %}
-				{% if obj.id == form.nmCurso.value %}
+				{% if turma.nmCurso.id == obj.id %}
 					<option selected="selected" value="{{ obj.id }}">{{ obj.nmCurso }}</option>
 				{% else %}
 					<option value="{{ obj.id }}">{{ obj.nmCurso }}</option>
@@ -27,9 +27,9 @@
 		
 		<tr> <td class="colunaTabela"> <label>Local</label> </td>
 		<td> 
-		<select name="nmLocal">
+		<select name="local">
 			{% for obj in local %}
-				{% if obj.id == form.nmLocal.value %}
+				{% if turma.nmLocal.id == obj.id %}
 					<option selected="selected" value="{{ obj.id }}">{{ obj.nmLocal }}</option>
 				{% else %}
 					<option value="{{ obj.id }}">{{ obj.nmLocal }}</option>
@@ -39,8 +39,21 @@
 		</td>
 		</tr>
 		
-		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>	<td>{{form.dtPeriodo}} </td> </tr>
+		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>	
+		<td>
+		<select name="periodo">
+			{% for obj in periodo %}
+				{% if turma.nmPeriodo.id == obj.id %}
+					<option selected="selected" value="{{ obj.id }}">{{ obj.nmPeriodo }}</option>
+				{% else %}
+					<option value="{{ obj.id }}">{{ obj.nmPeriodo }}</option>
+				{% endif %}
+			{% endfor %}
+		</select>
+		</td>
+		</tr>
 	</table>
+	
 	</div>
 	<br />
 	<table style="width:100%">

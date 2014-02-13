@@ -150,9 +150,9 @@ DL.captioned {padding:10px}
 #dashboard-actions UL {list-style:none none outside;margin-top:0}
 #dashboard-actions UL LI {padding-left:0.7em;display:inline}
 .section DIV {padding-bottom:0.5em;padding-top:0.5em}
-#portal-column-content {width:100%;background:url(http://www.brasil.gov.br/bg/bgConteudoGeral.png);float:left;padding-top:7px;} /* - ALTEREI AQUI PARA ENCOSTAR EM CIMA edus - */
-#portal-column-one {width:183px;float:left;padding:0px 0 0 15px}/* - ALTEREI AQUI PARA ENCOSTAR EM CIMA edus - */
-#content-plain {width:780px;float:left;margin:0;margin-top:10px;}
+#portal-column-content {width:100%;float:left;padding-top:3px;min-height:540px} /* - ALTEREI AQUI PARA ENCOSTAR EM CIMA edus - */
+#portal-column-one {width:183px;float:left;padding:1px 0px 0px 7px}/* - ALTEREI AQUI PARA ENCOSTAR EM CIMA edus - */
+#content-plain {width:780px;float:right;margin:0;margin-top:10px;}
 #content-plain p {font-size:1.3em;}
 .section-home #content-plain {margin-top:1px;}
 #portal-column-two {width:250px;float:left;margin-left:10px}

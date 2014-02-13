@@ -104,19 +104,19 @@ function SomenteNumeroOK(e, obj)
 <html>
 
 <head>
-{% block cabecalho %}<title>Escola</title> {% endblock %}
+{% block cabecalho %}<title>Sistema de Controle de Escola</title> {% endblock %}
 </head>
 
-<body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top;" 
+<body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top;background-repeat:no-repeat; background-position:center" 
 	id="home-pt" dir="ltr" class="section-home template-contentpanels_view">
 
-<div style="width:100%;font-size:40px;color:blue; font-weight:bold
-	;position: center;	overflow: hidden;	min-width: 1000px;
-	font-family: verdana, sans-serif; text-align:center">	
-	<!-- background:url('{% static 'img/bg.jpg' %}') no-repeat center fixed;"-->
-	Controle de Escola
-</div>
-<div id="visual-portal-wrapper">
+<div id="barra-brasil">
+	<div class="barra">
+		</br>
+		<div style="width:100%;font-size:40px;color:white; font-weight:bold"> 
+		Controle ECAM </div>
+	</div>
+</div><div id="visual-portal-wrapper">
 	<div id="portal-top">
 		<div id="portal-header">
 			<div id="divCollophon" style=" background: url('{% static "img/bgHeader.gif" %}');" >
@@ -150,28 +150,28 @@ function SomenteNumeroOK(e, obj)
 									</a>
 								</li>
 								<li>
-									<a href="/web/terra_legal/" title="">
+									<a href="" title="">
 										<span>ECAM</span>
 									</a>
 								</li>
 								<li>
-									<a href="/web/mda/" title="">
-										<span>RENOVO</span>
+									<a href="" title="">
+										<span>SAO LUIS</span>
 									</a>
 								</li>
 								<li>
-									<a href="/web/processo_rural/" title="">
+									<a href="" title="">
 										<span>BELEM</span>
 									</a>
 								</li>
 								<li>
-									<a href="/web/regularizacao_urbana/" title="">
+									<a href="" title="">
 										<span>BRASILIA</span>
 									</a>
 								</li>
 								<li>
-									<a href="/sicop/processos/" title="">
-										<span>Acesso Restrito</span>
+									<a href="http://www.brasildejoelhos.com.br" title="">
+										<span>Brasil de Joelhos</span>
 									</a>
 								</li>
 							</ul>
@@ -188,8 +188,8 @@ function SomenteNumeroOK(e, obj)
 					<tbody class="first-child last-child">
 						<tr style="background:white" class="first-child last-child">
 							<td class="first-child" style="width: 776px" valign="top" width="#">
-								<div 	class="viewlet defaultPortletWrapper pais-tem-menor-taxa-de-desemprego-da-historia"
-									style="height:600px;margin: 0px 10px 5px 10px">
+								<div 	class="viewlet defaultPortletWrapper viewlet1"
+									style="height:600px;margin: 4px 5px 5px 5px">
 									{% block index %} {% endblock %}   				
 								</div>
 							</td>

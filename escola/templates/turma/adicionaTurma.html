@@ -4,36 +4,46 @@
 
 <form  action=""  method="post">
 	{% csrf_token %} 
+	<table>
+	<tr><td class="colunaTabela" > <label>CRIAR TURMA</label> </td></tr>
+	</table>
+	</br>
+	
 	<div style="width:100%;font-size:12px;text-align:left">
 	<table>
-		<tr> <td class="colunaTabela"> <label>Curso:</label> </td>
+		<tr><td class="colunaTabela" > <label>Curso:</label> </td>
 			<td>
-				<select name="nmCurso">
+				<select name="tbCurso">
+				<option value="">-- selecione o curso --</option>
 					{% for obj in curso %}
-						<option value="{{ obj.id }}">{{ obj.nmCurso }}</option>
+						<option value="{{obj.id}}">{{obj.nmCurso}}</option>
 					{% endfor %}
 				</select>
 			</td>
-			<!--td se for usar para cadastrar curso apartir daqui><a href="/sicop/restrito/sub_area/cadastro/?next=/sicop/restrito/sub_area/cadastro/" title="Nova SubArea"> <img src="colchetes static "img/add.png" colchetes" width="24" /> </a></td-->						
 		</tr>
+		<tr></tr>
+		<tr><td class="colunaTabela"></td></tr>
 		<tr> <td class="colunaTabela"> <label>Local:</label> </td>
 			<td>
-				<select name="nmLocal">
+				<select name="tbLocal">
+				<option value="">-- selecione o local --</option>
 					{% for obj in local %}
 						<option value="{{ obj.id }}">{{ obj.nmLocal }}</option>
 					{% endfor %}
 				</select>
 			</td>						
 		</tr>
+		<tr><td class="colunaTabela"></td></tr>
+		
 		<tr> <td class="colunaTabela"> <label>Periodo:</label> </td>
 			<td>
-				<select name="nmPeriodo">
+				<select name="tbPeriodo">
+				<option value="">-- selecione o periodo --</option>
 					{% for obj in periodo %}
-						<option id="periodo" value="{{ obj.id }}">{{ obj.nmPeriodo }}</option>
+						<option value="{{ obj.id }}">{{ obj.nmPeriodo }}</option>
 					{% endfor %}
 				</select>
 			</td>
-									
 		</tr>
 	</table>
 	</div>
@@ -41,7 +51,7 @@
 	<table style="width:100%">
 			<tr>
 				<td class="colunaTabela" style="text-align:left"> 
-					<a href="/listaTurma/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+					<a href="/listaTurma/" style="margin-right: 5px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
 					<input type="submit" class="button_green" value="SALVAR" />
 				</td>
 			</tr>

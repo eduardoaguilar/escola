@@ -5,7 +5,7 @@
 <head>
 
 <meta charset="utf-8" />
-	<title>Controle ESCOLA</title>
+	<title>Controle ECAM</title>
 	
 	<link rel="stylesheet" type="text/css" media="screen"
 	href="{% static "css/bs1-cachekey0246.css" %}" />
@@ -28,13 +28,13 @@
 {% block cabecalho %}<title>Escola</title> {% endblock %}
 </head>
 
-<body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top;" 
-	id="home-pt" dir="ltr" class="section-home template-contentpanels_view">
+<body style="background: url('{% static 'img/fundo.jpg' %}') no-repeat scroll center top; background-repeat:	repeat; background-position:center " 
+	id="home-pt" dir="ltr" class="section-home template-contentpanels_view" >
 
 <div id="barra-brasil">
 	<div class="barra">
-		<div style="width:100%;font-size:20px;color:white; font-weight:bold"> 
-		Sistema de controle de escola </div>
+		</br>
+		<div style="text-align:left; width:100%;font-size:40px;color:white; font-weight:bold">Controle ECAM </div>
 	</div>
 </div>
 
@@ -42,25 +42,7 @@
 <DIV id="portal-top">
 <DIV id="portal-header">
 </br></br>
-<div id="divCollophon" style=" background: url('{% static "img/bgHeader.gif" %}');" >
-			<div class="first-child last-child">
-				
-				<div style="margin-top:10px" class="baixoContraste first-child last-child">
 
-					<p style="font-weight: bold;" class="first-child">
-						Você está aqui: {% block breadcumbs %} {% endblock %}
-					</p>
-					<p style="font-weight: bold;" class="creditos last-child">
-						{% if user.is_active %}
-							Usuario: 
-							{% filter force_escape %}{% firstof user.get_short_name user.get_username %}{% endfilter %} 
-							| <a href="/logout/">Sair do Sistema</a>
-						{% endif %}
-					</p>
-
-				</div>
-			</div>
-		</div>
 
 </DIV> <!-- fim div portal-header -->
 </DIV> <!-- fim div portal-top -->
