@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
     
 class Curso(models.Model):
     id = models.AutoField(primary_key=True)
-    nmCurso= models.CharField(max_length=40)
+    nmCurso = models.CharField(max_length=40)
     def __unicode__(self):
         return self.nmCurso
     class Meta:
@@ -36,17 +36,17 @@ class Turma(models.Model):
         db_table = 'tbturma'
         
     def __unicode__(self):
-        return self.nmCurso,self.nmLocal,self.nmPeriodo
+        return self.nmCurso, self.nmLocal, self.nmPeriodo
 
 class Aluno(models.Model):  
     id = models.AutoField(primary_key=True)
-    nmAluno      = models.CharField(max_length=60)
-    dtMatricula  = models.DateField(null=True, blank=True)
+    nmAluno = models.CharField(max_length=60)
+    dtMatricula = models.DateField(null=True, blank=True)
     class Meta:
         db_table = 'tbaluno'
     
-    #usuario      = models.ForeignKey(User)
-    #participa    = models.ManyToManyField(Turma,related_name="turma_aluno") 
+    # usuario      = models.ForeignKey(User)
+    # participa    = models.ManyToManyField(Turma,related_name="turma_aluno") 
     def __unicode__(self):
         return self.nmAluno
 

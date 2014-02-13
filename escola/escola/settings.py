@@ -7,21 +7,21 @@ ROOTDIR = os.path.dirname(__file__)
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (('Eduardo Aguilar','edu.saoluis@gmail.com'),
+ADMINS = (('Eduardo Aguilar', 'edu.saoluis@gmail.com'),
     )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
 #        'NAME': '/Users/eduardo/git/escola/escola/dbEscola',                      # Or path to database file if using sqlite3.
         'NAME': 'dbEscola',
         # The following settings are not used with sqlite3:
         'USER': 'postgres',
         'PASSWORD': 'postgres',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '5432',                      # Set to empty string for default.
+        'HOST': 'localhost',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '5432',  # Set to empty string for default.
     },
 }
 
@@ -44,13 +44,13 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/var/www/example.com/media/"
-#MEDIA_ROOT = os.path.join(ROOTDIR,"media")
-MEDIA_ROOT = '' #abspath(join(dirname(__file__), '../media')),
+# MEDIA_ROOT = os.path.join(ROOTDIR,"media")
+MEDIA_ROOT = ''  # abspath(join(dirname(__file__), '../media')),
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL =  '' #/media/'
+MEDIA_URL = ''  # /media/'
 
  
 # Absolute path to the directory static files should be collected to.
@@ -104,7 +104,7 @@ ROOT_URLCONF = 'escola.urls'
 WSGI_APPLICATION = 'escola.wsgi.application'
 
 TEMPLATE_DIRS = (
-                 #os.path.join(ROOTDIR,'templates'),
+                 # os.path.join(ROOTDIR,'templates'),
                  abspath(join(dirname(__file__), '../templates')),
 )
 print TEMPLATE_DIRS
@@ -133,9 +133,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 
 
-LOGIN_URL = "/login/"      # muda o url que aparece no browser
+LOGIN_URL = "/login/"  # muda o url que aparece no browser
 LOGOUT_URL = "/logout/"
-LOGIN_REDIRECT_URL = "/" # quando o parametro next nao eh repassado , manda para o diretorio /
+LOGIN_REDIRECT_URL = "/"  # quando o parametro next nao eh repassado , manda para o diretorio /
 
 
 # A sample logging configuration. The only tangible logging

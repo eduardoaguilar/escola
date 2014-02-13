@@ -5,19 +5,24 @@
 
 <form  action=""  method="post">
 	{% csrf_token %} 
+
+<table>
+	<tr><td class="colunaTabela" style="padding-bottom: 20px"> <label>FAZER UMA MATRICULA</label> </td></tr>
+</table>
+
 	<div style="width:100%;font-size:12px;text-align:left">
 	<table>
-		<tr> <td class="colunaTabela"> <label>Turma:</label> </td>
+		<tr> <td class="colunaTabela" style="padding-bottom: 20px"> <label>Turma:</label> </td>
 			<td>
 				<select name="nmTurma">
 					{% for obj in turma %}
-						<option value="{{ obj.id }}">{{ obj.nmCurso }} {{ obj.nmLocal }} {{ obj.dtPeriodo }}</option>
+						<option value="{{ obj.id }}">{{ obj.nmCurso }} {{ obj.nmLocal }} {{ obj.nmPeriodo }}</option>
 					{% endfor %}
 				</select>
 			</td>
 			<!--td se for usar para cadastrar curso apartir daqui><a href="/sicop/restrito/sub_area/cadastro/?next=/sicop/restrito/sub_area/cadastro/" title="Nova SubArea"> <img src="colchetes static "img/add.png" colchetes" width="24" /> </a></td-->						
 		</tr>
-		<tr> <td class="colunaTabela"> <label>Aluno:</label> </td>
+		<tr> <td class="colunaTabela" style="padding-bottom: 30px"> <label>Aluno:</label> </td>
 			<td>
 				<select name="nmAluno">
 					{% for obj in aluno %}
@@ -33,7 +38,7 @@
 	<table style="width:100%">
 			<tr>
 				<td class="colunaTabela" style="text-align:left"> 
-					<a href="/listaTurma/" style="margin-right: 10px"><input type="button" class="button_yellow" value="CONSULTAR" /></a>
+					<a href="/listaTurma/" style="margin-right: 10px"><input type="button" class="button_yellow" value="VOLTAR	" /></a>
 					<input type="submit" class="button_green" value="SALVAR" />
 				</td>
 			</tr>

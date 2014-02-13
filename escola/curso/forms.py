@@ -22,6 +22,6 @@ class FormTurma (forms.ModelForm):
 class FormMatricula (forms.ModelForm):
     class Meta:
         model = Matricula
-        fields = ('nmTurma','nmAluno')
+        fields = ('nmTurma', 'nmAluno')
         
        
