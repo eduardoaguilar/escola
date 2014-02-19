@@ -1,0 +1,43 @@
+
+{% extends 'index.html' %}
+
+{% load staticfiles %}
+
+{% block breadcumbs %}
+	Consulta | Alunos Matriculados
+{% endblock %}
+
+{% block conteudo %}
+</br>
+{% if lista %}
+<table id="table_peca_tecnica"  style="width:100%">
+		<tr> 
+			<td class="colunaTabela" style="width:50%" align:left>
+				<label>Alunos matriculados em </label>
+				{% for item in lista %}
+					<td class="colunaTabela"> {{ item.nmTurma.nmCurso }} {{ item.nmTurma.nmLocal}} {{ item.nmTurma.nmPeriodo }}</td>
+		 		{% endfor %}
+			</td>
+		</tr>
+	</table>
+	<table>
+	<thead style="background:#e5e5e5;color:black">
+	<tr>
+		<th class="colunaTabelaConsulta" style="width:30%">Aluno</th>
+	</tr>
+	</thead>
+
+	<tbody>
+		{% for item in lista %}
+			<tr>
+				<td class="colunaTabelaConsulta"> {{ item.nmAluno }}</td>
+				
+	 		</tr>
+	 		
+		{% endfor %}
+	{% else %}
+		<li>Nao existem alunos matriculados nessa turma</li> 
+	{% endif %}
+</table>
+
+{% endblock %}

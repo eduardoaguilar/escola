@@ -25,44 +25,50 @@
 			<div class="grid-10 grid">
 				<div id="cssmenu" style="width:100%;font-size:10px;color:blue">
 					<ul>
+					
 					<li><a href="/listaMatricula/">Matricula</a>
 							<ul style="width:150px" >
 								<li><a href="/listaMatricula/">Consultar</a>
-								<li><a href="/adicionaMatricula/">Fazer matricula</a>
+								<li><a href="/adicionaMatricula/">matricular alunos</a>
 							</ul>
-						</li>
-						<li><a href="/listaTurma/">Turma</a>
-							<ul style="width:250px">
-								<li><a href="/listaTurma/">Consultar Turma</a></li>
-								<li><a href="/adicionaTurma/"  >Criar uma turma</a></li>
-								<li>                         <a>-----------------</a></li>
-								<li><a href="/listaPeriodo/"   >Consultar periodo</a></li>
-								<li><a href="/adicionaPeriodo/">Criar um periodo</a></li>
-							</ul>					
-						</li>
-						<li><a href='/listaAluno'>Aluno</a>
-							<ul style="width:150px" >
-								<li><a href='/listaAluno/'>Consultar</a>
-								<li><a href='/adicionaAluno/'>Incluir um aluno</a>
-							</ul>
-						</li>
-						<li><a href="/listaCurso/">Curso</a>
-							<ul style="width:150px" >
-								<li><a href="/listaCurso/">Consultar</a>
-								<li><a href="/adicionaCurso/">criar um curso</a>
-							</ul>
-						</li> 
+					</li>
+					
+					<li><a href="/listaTurma/">Turma</a>
+						<ul style="width:250px">
+							<li><a href="/listaTurma/">Consultar Turma</a></li>
+							<li><a href="/adicionaTurma/"  >montar uma turma</a></li>
+						</ul>
+					</li>
 						
-						
-						<li><a href="/listaLocal/">Local</a>
-							<ul style="width:150px" >
-								<li><a href="/listaLocal/">Consultar</a>
-								<li><a href="/adicionaLocal/">Cadastrar</a>
-							</ul>
-						</li>
-						
-						
-						<!--li><a href="/admin/">Admin</a></li-->
+					<li><a href="/listaPeriodo/">Periodo</a>
+						<ul style="width:250px">
+							<li><a href="/listaPeriodo/"   >Consultar periodo</a></li>
+							<li><a href="/adicionaPeriodo/">definir um periodo</a></li>
+						</ul>					
+					</li>
+					
+					<li><a href='/listaAluno'>Aluno</a>
+						<ul style="width:150px" >
+							<li><a href='/listaAluno/'>Consultar</a>
+							<li><a href='/adicionaAluno/'>cadastrar alunos</a>
+						</ul>
+					</li>
+					
+					<li><a href="/listaCurso/">Curso</a>
+						<ul style="width:150px" >
+							<li><a href="/listaCurso/">Consultar</a>
+							<li><a href="/adicionaCurso/">criar um curso</a>
+						</ul>
+					</li> 
+					
+					
+					<li><a href="/listaLocal/">Local</a>
+						<ul style="width:150px" >
+							<li><a href="/listaLocal/">Consultar</a>
+							<li><a href="/adicionaLocal/">definir um local</a>
+						</ul>
+					</li>
+					<!--li><a href="/admin/">Admin</a></li-->
 					</ul>
 				</div>
 				
@@ -73,7 +79,7 @@
 				</div>
 				
 				<div style="margin-right:6px;min-height:540px;float:right; width:794px;background:white">
-					<div style="margin:20px">
+					<div style="margin:0px">
 						{% block conteudo %} {% endblock %}
 					</div>
 				</div>
